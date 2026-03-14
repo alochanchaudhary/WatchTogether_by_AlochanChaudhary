@@ -11,7 +11,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    socket.current = io("http://localhost:8000");
+    socket.current = io("https://watchtogether-jpek.onrender.com");
 
     return () => {
       socket.current.disconnect();
