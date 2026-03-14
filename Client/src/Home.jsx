@@ -38,6 +38,11 @@ const Home = () => {
           type="text"
           placeholder="Enter room name"
           onChange={(e) => setRoom(e.target.value)}
+           onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleJoin();
+            }
+          }}
         />
         <button onClick={handleJoin}>Create Room</button>
       </div>
