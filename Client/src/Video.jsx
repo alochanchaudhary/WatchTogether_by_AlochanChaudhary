@@ -30,9 +30,9 @@ const Video = () => {
     const API = `https://www.googleapis.com/youtube/v3/search?key=${key}&part=snippet&type=video&q=${searchQuery}`;
     try {
       const response = await axios.get(API);
-      if (response.data.items.length > 0) {
-        setMainVideoId(response.data.items[0].id.videoId);
-      }
+      // if (response.data.items.length > 0) {
+      //   setMainVideoId(response.data.items[0].id.videoId);
+      // }
       console.log(response.data.items);
       setVideoes(response.data.items);
     } catch (error) {
@@ -262,6 +262,11 @@ const Video = () => {
           placeholder="Search for video"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => {
+           if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
         />
         <button onClick={handleSearch}>Search</button>
       </div>
